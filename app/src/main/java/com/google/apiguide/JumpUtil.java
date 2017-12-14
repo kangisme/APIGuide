@@ -1,4 +1,4 @@
-package com.google.apiguide.userinterface;
+package com.google.apiguide;
 
 import android.app.Activity;
 import android.content.Context;

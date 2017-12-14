@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.google.apiguide.userinterface.JumpUtil;
 import com.google.apiguide.userinterface.UserInterfaceActivity;
 
 /**

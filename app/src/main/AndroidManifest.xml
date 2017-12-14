@@ -19,7 +19,13 @@
 
         <!--用户界面-->
         <activity android:name=".userinterface.UserInterfaceActivity"
-            android:label="用户界面">
+            android:label="User Interface">
+
+        </activity>
+
+        <!--用户界面->通知-->
+        <activity android:name=".userinterface.notification.NotificationActivity"
+            android:label="Notification">
 
         </activity>
     </application>
