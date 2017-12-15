@@ -55,6 +55,7 @@
             android:layout_height="40dp">
 
             <ImageButton
+                android:id="@+id/music_like"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
                 android:src="@mipmap/notification_like_red"
@@ -63,6 +64,7 @@
                 android:layout_height="match_parent"/>
 
             <ImageButton
+                android:id="@+id/music_pre"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
                 android:src="@mipmap/notification_pre"
@@ -71,6 +73,7 @@
                 android:layout_height="match_parent"/>
 
             <ImageButton
+                android:id="@+id/music_pause"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
                 android:src="@mipmap/notification_pause"
@@ -79,6 +82,7 @@
                 android:layout_height="match_parent"/>
 
             <ImageButton
+                android:id="@+id/music_next"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
                 android:src="@mipmap/notification_next"
@@ -87,6 +91,7 @@
                 android:layout_height="match_parent"/>
 
             <ImageButton
+                android:id="@+id/music_lyric"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
                 android:src="@mipmap/notification_liyric_gray"
@@ -97,6 +102,7 @@
     </LinearLayout>
 
     <ImageButton
+        android:id="@+id/music_close"
         android:contentDescription="@null"
         android:background="@drawable/button_pressed_style"
         android:layout_alignParentRight="true"

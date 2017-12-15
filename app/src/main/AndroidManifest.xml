@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.google.apiguide">
 
+    <!-- you can prevent users from installing your app when their devices don't provide a given feature
+     by declaring it with a <uses-feature> element in your app's manifest file-->
+    <uses-feature android:name="android.hardware.Sensor.compass"
+                    android:required="true"/>
+
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
+    <permission android:name="com.example.myapp.permission.DEADLY_ACTIVITY"
+                android:label="@string/app_name"
+                android:description="@string/app_name"
+                android:permissionGroup="android.permission-group.COST_MONEY"
+                android:protectionLevel="dangerous" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,17 +30,27 @@
             </intent-filter>
         </activity>
 
+        <!--简介-设备兼容性-->
+        <activity android:name=".introduction.DeviceCompatibilityActivity"
+            android:label="Device Compatibility">
+
+        </activity>
+
         <!--用户界面-->
         <activity android:name=".userinterface.UserInterfaceActivity"
             android:label="User Interface">
 
         </activity>
 
-        <!--用户界面->通知-->
+        <!--用户界面-通知-->
         <activity android:name=".userinterface.notification.NotificationActivity"
             android:label="Notification">
 
         </activity>
+
+        <service android:name=".userinterface.notification.NetEasyService">
+
+        </service>
     </application>
 
 </manifest>

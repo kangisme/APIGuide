@@ -3,6 +3,7 @@ package com.google.apiguide.userinterface.notification;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
@@ -13,6 +14,7 @@ import android.widget.RemoteViews;
 import com.google.apiguide.R;
 
 /**
+ * 用户界面-通知
  * Created by kangren on 2017/12/13.
  */
 
@@ -22,6 +24,8 @@ public class NotificationActivity extends AppCompatActivity {
 
     private Notification notification;
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +34,9 @@ public class NotificationActivity extends AppCompatActivity {
         findViewById(R.id.send_neteasy).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(NotificationActivity.this, NetEasyService.class);
+                intent.putExtra(NetEasyService.COMMAND, NetEasyService.Command.START);
+                NotificationActivity.this.startService(intent);
             }
         });
 
@@ -49,4 +55,9 @@ public class NotificationActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+    }
 }

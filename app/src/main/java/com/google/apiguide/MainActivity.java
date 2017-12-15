@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.google.apiguide.introduction.DeviceCompatibilityActivity;
 import com.google.apiguide.userinterface.UserInterfaceActivity;
 
 /**
@@ -16,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.device).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtil.jumpTo(MainActivity.this, DeviceCompatibilityActivity.class);
+            }
+        });
         findViewById(R.id.user_interface).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

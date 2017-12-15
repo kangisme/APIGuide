@@ -9,6 +9,12 @@
     tools:context="com.google.apiguide.MainActivity">
 
     <Button
+        android:id="@+id/device"
+        android:text="设备兼容性"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
         android:id="@+id/user_interface"
         android:text="用户界面"
         android:layout_width="match_parent"
