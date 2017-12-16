@@ -48,6 +48,16 @@
 
         </activity>
 
+        <!--应用组件-->
+        <activity android:name=".appcomponents.AppComponentsActivity">
+
+        </activity>
+
+        <!--应用组件-Intent-->
+        <activity android:name=".appcomponents.intent.IntentActivity">
+
+        </activity>
+
         <service android:name=".userinterface.notification.NetEasyService">
 
         </service>
