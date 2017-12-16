@@ -94,7 +94,7 @@
                 android:id="@+id/music_lyric"
                 android:contentDescription="@null"
                 android:background="@drawable/button_pressed_style"
-                android:src="@mipmap/notification_liyric_gray"
+                android:src="@mipmap/notification_lyric_gray"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"/>

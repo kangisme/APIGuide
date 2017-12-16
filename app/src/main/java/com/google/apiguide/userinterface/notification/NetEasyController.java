@@ -33,8 +33,6 @@ public class NetEasyController {
 
     private RemoteViews smallView;
 
-    private ControllerCallBack callBack;
-
 
 
     public NetEasyController(Context context) {
@@ -47,6 +45,7 @@ public class NetEasyController {
         manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
         bigView = new RemoteViews(mContext.getPackageName(), R.layout.notification_neteasy_player);
+        smallView = new RemoteViews(mContext.getPackageName(),  R.layout.notification_neteasy_player_small);
 
         int requestCode = (int) SystemClock.uptimeMillis();
 
@@ -54,6 +53,7 @@ public class NetEasyController {
         close.putExtra(NetEasyService.COMMAND, NetEasyService.Command.CLOSE);
         PendingIntent pendingClose = PendingIntent.getService(mContext, 1, close, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_close, pendingClose);
+        smallView.setOnClickPendingIntent(R.id.music_close, pendingClose);
 
         Intent like = new Intent(mContext, NetEasyService.class);
         like.putExtra(NetEasyService.COMMAND, NetEasyService.Command.LIKE);
@@ -66,19 +66,22 @@ public class NetEasyController {
         bigView.setOnClickPendingIntent(R.id.music_pre, pendingPre);
 
         Intent pause = new Intent(mContext, NetEasyService.class);
-        like.putExtra(NetEasyService.COMMAND, NetEasyService.Command.PAUSE);
+        pause.putExtra(NetEasyService.COMMAND, NetEasyService.Command.PAUSE);
         PendingIntent pendingPause = PendingIntent.getService(mContext, 4, pause, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_pause, pendingPause);
+        smallView.setOnClickPendingIntent(R.id.music_pause, pendingPause);
 
         Intent next = new Intent(mContext, NetEasyService.class);
-        like.putExtra(NetEasyService.COMMAND, NetEasyService.Command.NEXT);
+        next.putExtra(NetEasyService.COMMAND, NetEasyService.Command.NEXT);
         PendingIntent pendingNext = PendingIntent.getService(mContext, 5, next, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_next, pendingNext);
+        smallView.setOnClickPendingIntent(R.id.music_next, pendingNext);
 
         Intent lyric = new Intent(mContext, NetEasyService.class);
         lyric.putExtra(NetEasyService.COMMAND, NetEasyService.Command.LYRIC);
         PendingIntent pendingLyric = PendingIntent.getService(mContext, 6, lyric, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_lyric, pendingLyric);
+        smallView.setOnClickPendingIntent(R.id.music_lyric, pendingLyric);
 
         //API 16以下不支持BigContentView
 //        if(android.os.Build.VERSION.SDK_INT >= 16) {
@@ -86,7 +89,10 @@ public class NetEasyController {
 //            notification.bigContentView = bigView;
 //        }
 
-        smallView = new RemoteViews(mContext.getPackageName(),  R.layout.notification_neteasy_player_small);
+
+        //初始化
+        setLikeState(false);
+        setLyricState(false);
 
         RemoteViews tickerView = new RemoteViews(mContext.getPackageName(), R.mipmap.neteasy_player_small_icon);
 
@@ -122,25 +128,48 @@ public class NetEasyController {
         manager.cancel(R.string.app_name);
     }
 
-    public void setControllerCallBack(ControllerCallBack controllerCallBack)
+    /**
+     * 设置喜爱状态
+     * @param isLike 是否喜爱
+     */
+    public void setLikeState(boolean isLike)
     {
-        this.callBack = controllerCallBack;
+        if (isLike)
+        {
+            bigView.setImageViewResource(R.id.music_like, R.mipmap.notification_like_red);
+        }
+        else
+        {
+            bigView.setImageViewResource(R.id.music_like, R.mipmap.notification_like_gray);
+        }
     }
 
-    public interface ControllerCallBack
+    /**
+     * 设置歌词显示状态
+     * @param isLyric 是否显示歌词
+     */
+    public void setLyricState(boolean isLyric)
     {
-        void close();
+        if (isLyric)
+        {
+            bigView.setImageViewResource(R.id.music_lyric, R.mipmap.notification_lyric_red);
+        }
+        else
+        {
+            bigView.setImageViewResource(R.id.music_lyric, R.mipmap.notification_lyric_gray);
+        }
+    }
 
-        void like();
-
-        void pre();
-
-        void next();
-
-        void lyric();
-
-        //点击其它部分进入播放器界面
-        void enter();
-
+    /**
+     * 设置歌曲信息
+     * @param title 歌曲名
+     * @param author 歌手名
+     */
+    public void setMusicInfo(String title, String author)
+    {
+        bigView.setTextViewText(R.id.music_title, title);
+        bigView.setTextViewText(R.id.music_author, author);
+        smallView.setTextViewText(R.id.music_title, title);
+        smallView.setTextViewText(R.id.music_author, author);
     }
 }
