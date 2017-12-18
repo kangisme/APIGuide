@@ -53,6 +53,8 @@ public class NetEasyService extends Service {
                 break;
             case CLOSE:
                 controller.cancelPlayer();
+                //关闭服务
+                stopSelf();
                 break;
             case LIKE:
                 Toast.makeText(this, "like", Toast.LENGTH_SHORT).show();

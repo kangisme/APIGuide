@@ -66,6 +66,17 @@
 
         </activity>
 
+        <!--应用组件-Activity-->
+        <activity android:name=".appcomponents.activity.MyActivity"
+            android:label="Activity">
+
+        </activity>
+
+        <activity android:name=".appcomponents.service.ServiceActivity"
+            android:label="Service">
+
+        </activity>
+
         <activity android:name=".appcomponents.intent.IntentReceiverActivity"
             android:label="隐式Intent接收"
             android:icon="@mipmap/music_icon">
@@ -76,6 +87,14 @@
                 <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
+
+        <service android:name=".appcomponents.service.MyService">
+
+        </service>
+
+        <service android:name=".appcomponents.service.UploadIntentService">
+
+        </service>
 
         <service android:name=".userinterface.notification.NetEasyService">
 
