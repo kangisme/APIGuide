@@ -7,7 +7,13 @@
     <uses-feature android:name="android.hardware.Sensor.compass"
                     android:required="true"/>
 
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
+
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <permission android:name="com.example.myapp.permission.DEADLY_ACTIVITY"
                 android:label="@string/app_name"
@@ -49,13 +55,26 @@
         </activity>
 
         <!--应用组件-->
-        <activity android:name=".appcomponents.AppComponentsActivity">
+        <activity android:name=".appcomponents.AppComponentsActivity"
+            android:label="App Components">
 
         </activity>
 
         <!--应用组件-Intent-->
-        <activity android:name=".appcomponents.intent.IntentActivity">
+        <activity android:name=".appcomponents.intent.IntentActivity"
+            android:label="Intent">
 
+        </activity>
+
+        <activity android:name=".appcomponents.intent.IntentReceiverActivity"
+            android:label="隐式Intent接收"
+            android:icon="@mipmap/music_icon">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
         </activity>
 
         <service android:name=".userinterface.notification.NetEasyService">

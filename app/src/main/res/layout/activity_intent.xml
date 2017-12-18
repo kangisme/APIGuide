@@ -7,6 +7,56 @@
 
     <Button
         android:id="@+id/implicit_intent"
+        android:text="隐式 Intent "
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/force_choose_intent"
+        android:text="强制使用选择器Intent"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/intent_receiver"
+        android:text="隐式Intent接收"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="通用Intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/set_alarm"
+        android:text="创建闹铃"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/set_timer"
+        android:text="创建计时器"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/image_capture"
+        android:text="拍摄照片并将其返回"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:visibility="gone"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:id="@+id/image_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/still_image"
+        android:text="以静态图像模式启动相机"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/get_content"
+        android:text="检索指定类型文件"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
