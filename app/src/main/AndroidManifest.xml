@@ -72,8 +72,14 @@
 
         </activity>
 
+        <!--应用组件-Service-->
         <activity android:name=".appcomponents.service.ServiceActivity"
             android:label="Service">
+
+        </activity>
+
+        <activity android:name=".appcomponents.service.BindingActivity"
+            android:label="Bind Activity">
 
         </activity>
 
@@ -88,6 +94,14 @@
             </intent-filter>
         </activity>
 
+        <!--应用资源-->
+        <!--Android3.1之后，屏幕旋转也会导致屏幕尺寸发生变化-->
+        <activity android:name=".appresources.AppResourcesActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="App Resources">
+
+        </activity>
+
         <service android:name=".appcomponents.service.MyService">
 
         </service>
@@ -99,6 +113,9 @@
         <service android:name=".userinterface.notification.NetEasyService">
 
         </service>
+
+        <!--绑定服务-->
+        <service android:name=".appcomponents.service.LocalService"/>
     </application>
 
 </manifest>

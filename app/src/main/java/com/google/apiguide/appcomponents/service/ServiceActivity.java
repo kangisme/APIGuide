@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.apiguide.BaseActivity;
+import com.google.apiguide.JumpUtil;
 import com.google.apiguide.R;
 
 /**
@@ -53,6 +54,11 @@ public class ServiceActivity extends BaseActivity {
             }
         });
         registerReceiver();
+    }
+
+    public void bindService(View view)
+    {
+        JumpUtil.jumpTo(mContext, BindingActivity.class);
     }
 
     public void addTask(View view)

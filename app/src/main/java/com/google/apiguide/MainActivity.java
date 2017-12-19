@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.apiguide.appcomponents.AppComponentsActivity;
+import com.google.apiguide.appresources.AppResourcesActivity;
 import com.google.apiguide.introduction.DeviceCompatibilityActivity;
 import com.google.apiguide.userinterface.UserInterfaceActivity;
 
@@ -34,6 +35,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 JumpUtil.jumpTo(mContext, AppComponentsActivity.class);
+            }
+        });
+        findViewById(R.id.app_resources).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JumpUtil.jumpTo(mContext, AppResourcesActivity.class);
             }
         });
     }

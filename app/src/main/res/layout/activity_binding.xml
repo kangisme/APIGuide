@@ -8,15 +8,9 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/normal"
-        android:text="普通通知"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-    <Button
-        android:id="@+id/send_neteasy"
-        android:text="网易云音乐"
+        android:text="click"
+        android:textAllCaps="false"
+        android:onClick="onButtonClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
