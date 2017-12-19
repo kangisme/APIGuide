@@ -54,6 +54,11 @@
 
         </activity>
 
+        <!--用户界面-菜单-->
+        <activity android:name=".userinterface.menu.MenuActivity">
+
+        </activity>
+
         <!--应用组件-->
         <activity android:name=".appcomponents.AppComponentsActivity"
             android:label="App Components">
