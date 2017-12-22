@@ -55,8 +55,30 @@
         </activity>
 
         <!--用户界面-菜单-->
-        <activity android:name=".userinterface.menu.MenuActivity">
+        <activity android:name=".userinterface.menu.MenuActivity"
+            android:label="Menu">
 
+        </activity>
+
+        <!--用户界面-搜索-->
+        <!-- this activity enables the search dialog to initiate searches
+            in the SearchableActivity -->
+        <activity android:name=".userinterface.search.SearchActivity"
+            android:label="Search">
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data android:name="android.app.default_searchable"
+                       android:value=".userinterface.search.SearchableActivity" />
+        </activity>
+
+        <!-- this is the searchable activity; it performs searches -->
+        <activity android:name=".userinterface.search.SearchableActivity"
+            android:label="Search Result"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                       android:resource="@xml/search"/>
         </activity>
 
         <!--应用组件-->

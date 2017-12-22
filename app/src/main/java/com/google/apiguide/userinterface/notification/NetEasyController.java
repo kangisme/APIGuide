@@ -44,39 +44,45 @@ public class NetEasyController {
 
         manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        //Notification大图，大小为wrap_content
         bigView = new RemoteViews(mContext.getPackageName(), R.layout.notification_neteasy_player);
+        //Notification小图，双指按住上划显示，固定为64dp
         smallView = new RemoteViews(mContext.getPackageName(),  R.layout.notification_neteasy_player_small);
 
-        int requestCode = (int) SystemClock.uptimeMillis();
-
+        //关闭
         Intent close = new Intent(mContext, NetEasyService.class);
         close.putExtra(NetEasyService.COMMAND, NetEasyService.Command.CLOSE);
         PendingIntent pendingClose = PendingIntent.getService(mContext, 1, close, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_close, pendingClose);
         smallView.setOnClickPendingIntent(R.id.music_close, pendingClose);
 
+        //设为喜爱
         Intent like = new Intent(mContext, NetEasyService.class);
         like.putExtra(NetEasyService.COMMAND, NetEasyService.Command.LIKE);
         PendingIntent pendingLike = PendingIntent.getService(mContext, 2, like, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_like, pendingLike);
 
+        //上一首
         Intent pre = new Intent(mContext, NetEasyService.class);
         pre.putExtra(NetEasyService.COMMAND, NetEasyService.Command.PRE);
         PendingIntent pendingPre = PendingIntent.getService(mContext, 3, pre, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_pre, pendingPre);
 
+        //暂停/播放
         Intent pause = new Intent(mContext, NetEasyService.class);
         pause.putExtra(NetEasyService.COMMAND, NetEasyService.Command.PAUSE);
         PendingIntent pendingPause = PendingIntent.getService(mContext, 4, pause, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_pause, pendingPause);
         smallView.setOnClickPendingIntent(R.id.music_pause, pendingPause);
 
+        //下一首
         Intent next = new Intent(mContext, NetEasyService.class);
         next.putExtra(NetEasyService.COMMAND, NetEasyService.Command.NEXT);
         PendingIntent pendingNext = PendingIntent.getService(mContext, 5, next, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_next, pendingNext);
         smallView.setOnClickPendingIntent(R.id.music_next, pendingNext);
 
+        //显示歌词
         Intent lyric = new Intent(mContext, NetEasyService.class);
         lyric.putExtra(NetEasyService.COMMAND, NetEasyService.Command.LYRIC);
         PendingIntent pendingLyric = PendingIntent.getService(mContext, 6, lyric, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -88,11 +94,6 @@ public class NetEasyController {
 //            notification = builder.build();
 //            notification.bigContentView = bigView;
 //        }
-
-
-        //初始化
-        setLikeState(false);
-        setLyricState(false);
 
         RemoteViews tickerView = new RemoteViews(mContext.getPackageName(), R.mipmap.neteasy_player_small_icon);
 
@@ -112,6 +113,9 @@ public class NetEasyController {
         {
             return;
         }
+        //初始化
+        setLikeState(true);
+        setLyricState(false);
         //设置音乐名和歌手
         bigView.setTextViewText(R.id.music_title, title);
         bigView.setTextViewText(R.id.music_author, author);

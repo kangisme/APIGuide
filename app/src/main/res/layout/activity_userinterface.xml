@@ -20,9 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
-        android:tooltipText="自定义Toast"
         android:id="@+id/toast"
         android:text="Toast"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/search"
+        android:text="Search"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

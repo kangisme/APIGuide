@@ -24,8 +24,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     private Notification notification;
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +45,7 @@ public class NotificationActivity extends AppCompatActivity {
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .setContentTitle("这是标题")
                         .setContentText("这是内容")
+                        .setDefaults(Notification.DEFAULT_ALL)
                         .build();
                 manager.notify(1, notification);
             }

@@ -13,6 +13,7 @@ import com.google.apiguide.JumpUtil;
 import com.google.apiguide.R;
 import com.google.apiguide.userinterface.menu.MenuActivity;
 import com.google.apiguide.userinterface.notification.NotificationActivity;
+import com.google.apiguide.userinterface.search.SearchActivity;
 
 /**
  * API指南-用户界面
@@ -49,6 +50,12 @@ public class UserInterfaceActivity extends BaseActivity {
                 toast.setView(view);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
+            }
+        });
+        findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtil.jumpTo(mContext, SearchActivity.class);
             }
         });
     }
