@@ -52,6 +52,7 @@ public class NetEasyController {
         //关闭
         Intent close = new Intent(mContext, NetEasyService.class);
         close.putExtra(NetEasyService.COMMAND, NetEasyService.Command.CLOSE);
+        //requestCode务必区别。否则后面
         PendingIntent pendingClose = PendingIntent.getService(mContext, 1, close, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_close, pendingClose);
         smallView.setOnClickPendingIntent(R.id.music_close, pendingClose);
@@ -68,7 +69,7 @@ public class NetEasyController {
         PendingIntent pendingPre = PendingIntent.getService(mContext, 3, pre, PendingIntent.FLAG_UPDATE_CURRENT);
         bigView.setOnClickPendingIntent(R.id.music_pre, pendingPre);
 
-        //暂停/播放
+        //暂停//播放
         Intent pause = new Intent(mContext, NetEasyService.class);
         pause.putExtra(NetEasyService.COMMAND, NetEasyService.Command.PAUSE);
         PendingIntent pendingPause = PendingIntent.getService(mContext, 4, pause, PendingIntent.FLAG_UPDATE_CURRENT);

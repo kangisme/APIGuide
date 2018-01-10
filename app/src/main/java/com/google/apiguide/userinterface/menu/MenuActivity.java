@@ -30,6 +30,9 @@ public class MenuActivity extends BaseActivity implements PopupMenu.OnMenuItemCl
 
     private TextView textView;
 
+    /**
+     * 剪贴板
+     */
     private ClipboardManager clipboardManager;
 
     @Override

@@ -11,6 +11,7 @@ import com.google.apiguide.JumpUtil;
 import com.google.apiguide.R;
 import com.google.apiguide.appcomponents.activity.MyActivity;
 import com.google.apiguide.appcomponents.intent.IntentActivity;
+import com.google.apiguide.appcomponents.ipc.IpcActivity;
 import com.google.apiguide.appcomponents.service.ServiceActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
@@ -36,7 +37,8 @@ public class AppComponentsActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, MyActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-                intent.addFlags(FLAG_ACTIVITY_NEW_DOCUMENT);
+//                intent.addFlags(FLAG_ACTIVITY_NEW_DOCUMENT);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });
@@ -44,6 +46,12 @@ public class AppComponentsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 JumpUtil.jumpTo(mContext, ServiceActivity.class);
+            }
+        });
+        findViewById(R.id.ipc).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtil.jumpTo(mContext, IpcActivity.class);
             }
         });
     }
