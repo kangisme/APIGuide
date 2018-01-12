@@ -9,12 +9,17 @@
 
     <Button
         android:id="@+id/first_activity"
-        android:text="First"
+        android:text="First Process"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/second_activity"
-        android:text="Second"
+        android:text="Second Process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/aidl"
+        android:text="AIDL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.view.View;
 import com.google.apiguide.BaseActivity;
 import com.google.apiguide.JumpUtil;
 import com.google.apiguide.R;
+import com.google.apiguide.appcomponents.ipc.aidl.AIDLActivity;
 
 /**
  * 应用组件-IPC机制
@@ -28,6 +29,12 @@ public class IpcActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 JumpUtil.jumpTo(mContext, SecondActivity.class);
+            }
+        });
+        findViewById(R.id.aidl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtil.jumpTo(mContext, AIDLActivity.class);
             }
         });
     }

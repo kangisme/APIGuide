@@ -123,6 +123,7 @@
             </intent-filter>
         </activity>
 
+        <!--应用组件-IPC-->
         <activity android:name=".appcomponents.ipc.IpcActivity"
             android:label="IPC">
 
@@ -135,6 +136,11 @@
 
         <activity android:name=".appcomponents.ipc.SecondActivity"
             android:process="com.kang.second">
+
+        </activity>
+
+        <activity android:name=".appcomponents.ipc.aidl.AIDLActivity"
+            android:label="AIDL">
 
         </activity>
 
@@ -160,6 +166,15 @@
 
         <!--绑定服务-->
         <service android:name=".appcomponents.service.LocalService"/>
+
+        <service android:name=".appcomponents.ipc.aidl.AIDLService"
+            android:exported="true"
+            android:process=":aidl">
+            <intent-filter>
+                <action android:name="com.google.aidl"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
