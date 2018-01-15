@@ -1,4 +1,4 @@
-package com.google.apiguide.appcomponents.ipc;
+package com.google.apiguide.ipc;
 
 import com.google.apiguide.BaseActivity;
 

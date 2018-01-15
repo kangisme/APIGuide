@@ -1,7 +1,7 @@
 // BookManager.aidl
-package com.google.apiguide.appcomponents.ipc.aidl;
+package com.google.apiguide.ipc.aidl;
 
-import com.google.apiguide.appcomponents.ipc.aidl.Book;
+import com.google.apiguide.ipc.aidl.Book;
 // Declare any non-default types here with import statements
 
 interface BookManager {

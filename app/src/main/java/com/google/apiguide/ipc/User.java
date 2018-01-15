@@ -1,6 +1,5 @@
-package com.google.apiguide.appcomponents.ipc;
+package com.google.apiguide.ipc;
 
-import android.os.Binder;
 import android.os.Parcel;
 import android.os.Parcelable;
 

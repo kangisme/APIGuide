@@ -1,4 +1,4 @@
-package com.google.apiguide.appcomponents.ipc;
+package com.google.apiguide.ipc;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,8 @@ import android.view.View;
 import com.google.apiguide.BaseActivity;
 import com.google.apiguide.JumpUtil;
 import com.google.apiguide.R;
-import com.google.apiguide.appcomponents.ipc.aidl.AIDLActivity;
+import com.google.apiguide.ipc.aidl.AIDLActivity;
+import com.google.apiguide.ipc.messager.MessengerActivity;
 
 /**
  * 应用组件-IPC机制
@@ -35,6 +36,12 @@ public class IpcActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 JumpUtil.jumpTo(mContext, AIDLActivity.class);
+            }
+        });
+        findViewById(R.id.messenger).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtil.jumpTo(mContext, MessengerActivity.class);
             }
         });
     }

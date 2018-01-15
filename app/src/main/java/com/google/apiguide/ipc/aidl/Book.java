@@ -1,4 +1,4 @@
-package com.google.apiguide.appcomponents.ipc.aidl;
+package com.google.apiguide.ipc.aidl;
 
 import android.os.Parcel;
 import android.os.Parcelable;

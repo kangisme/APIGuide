@@ -2,12 +2,12 @@ package com.google.apiguide;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.apiguide.appcomponents.AppComponentsActivity;
 import com.google.apiguide.appresources.AppResourcesActivity;
-import com.google.apiguide.introduction.DeviceCompatibilityActivity;
+import com.google.apiguide.introduction.PermissionActivity;
+import com.google.apiguide.ipc.IpcActivity;
 import com.google.apiguide.userinterface.UserInterfaceActivity;
 
 /**
@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.device).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                JumpUtil.jumpTo(mContext, DeviceCompatibilityActivity.class);
+                JumpUtil.jumpTo(mContext, PermissionActivity.class);
             }
         });
         findViewById(R.id.user_interface).setOnClickListener(new View.OnClickListener() {
@@ -41,6 +41,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 JumpUtil.jumpTo(mContext, AppResourcesActivity.class);
+            }
+        });
+        findViewById(R.id.ipc).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtil.jumpTo(mContext, IpcActivity.class);
             }
         });
     }

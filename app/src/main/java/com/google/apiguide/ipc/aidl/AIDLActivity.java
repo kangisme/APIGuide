@@ -1,4 +1,4 @@
-package com.google.apiguide.appcomponents.ipc.aidl;
+package com.google.apiguide.ipc.aidl;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 

@@ -1,4 +1,4 @@
-package com.google.apiguide.appcomponents.ipc.aidl;
+package com.google.apiguide.ipc.aidl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.orhanobut.logger.Logger;
 
@@ -18,8 +17,6 @@ import com.orhanobut.logger.Logger;
  */
 
 public class AIDLService extends Service {
-
-    public final String TAG = this.getClass().getSimpleName();
 
     //包含Book对象的list
     private List<Book> mBooks = new ArrayList<>();
