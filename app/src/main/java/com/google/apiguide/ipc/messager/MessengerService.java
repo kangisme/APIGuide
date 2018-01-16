@@ -2,10 +2,12 @@ package com.google.apiguide.ipc.messager;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
@@ -15,22 +17,30 @@ import android.widget.Toast;
 
 public class MessengerService extends Service {
 
-    private class MessengerHandler extends Handler {
+    private Handler handler = new Handler(new Handler.Callback() {
         @Override
-        public void handleMessage(Message msg) {
+        public boolean handleMessage(Message msg) {
             switch (msg.what)
             {
                 case MessengerActivity.MSG_FROM_CLIENT:
                     String s = msg.getData().getString("msg");
                     Toast.makeText(MessengerService.this, s, Toast.LENGTH_SHORT).show();
+                    Messenger client = msg.replyTo;
+                    Message replyMessage = Message.obtain(null, MessengerActivity.MSG_FROM_SERVICE);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("reply", "消息已收到，稍后回复");
+                    try {
+                        client.send(replyMessage);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                     break;
-                default:
-                    super.handleMessage(msg);
             }
+            return true;
         }
-    }
+    });
 
-    private final Messenger messenger = new Messenger(new MessengerHandler());
+    private final Messenger messenger = new Messenger(handler);
 
     @Nullable
     @Override

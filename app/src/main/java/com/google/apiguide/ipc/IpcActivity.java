@@ -10,6 +10,9 @@ import com.google.apiguide.R;
 import com.google.apiguide.ipc.aidl.AIDLActivity;
 import com.google.apiguide.ipc.messager.MessengerActivity;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * 应用组件-IPC机制
  * Created by kangren on 2018/1/10.
@@ -20,29 +23,23 @@ public class IpcActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ipc);
-        findViewById(R.id.first_activity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JumpUtil.jumpTo(mContext, FirstActivity.class);
-            }
-        });
-        findViewById(R.id.second_activity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JumpUtil.jumpTo(mContext, SecondActivity.class);
-            }
-        });
-        findViewById(R.id.aidl).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JumpUtil.jumpTo(mContext, AIDLActivity.class);
-            }
-        });
-        findViewById(R.id.messenger).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JumpUtil.jumpTo(mContext, MessengerActivity.class);
-            }
-        });
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.first_activity) void first()
+    {
+        JumpUtil.jumpTo(mContext, FirstActivity.class);
+    }
+    @OnClick(R.id.second_activity) void second()
+    {
+        JumpUtil.jumpTo(mContext, SecondActivity.class);
+    }
+    @OnClick(R.id.aidl) void aidl()
+    {
+        JumpUtil.jumpTo(mContext, AIDLActivity.class);
+    }
+    @OnClick(R.id.messenger) void messenger()
+    {
+        JumpUtil.jumpTo(mContext, MessengerActivity.class);
     }
 }
