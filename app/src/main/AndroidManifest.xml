@@ -10,6 +10,8 @@
     <uses-feature android:name="android.hardware.camera"
                   android:required="true" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -152,6 +154,14 @@
 
         </activity>
 
+        <activity android:name=".ipc.provider.ProviderActivity">
+
+        </activity>
+
+        <activity android:name=".ipc.socket.TCPActivity">
+
+        </activity>
+
         <!--应用资源-->
         <!--Android3.1之后，屏幕旋转也会导致屏幕尺寸发生变化-->
         <activity android:name=".appresources.AppResourcesActivity"
@@ -188,6 +198,18 @@
             android:process=":messenger">
 
         </service>
+
+        <service android:name=".ipc.socket.TCPService"
+            android:process=":socket">
+
+        </service>
+        
+        <provider
+            android:authorities="com.google.apiguide.ipc.provider.BookProvider"
+            android:process=":provider"
+            android:name=".ipc.provider.BookProvider">
+
+        </provider>
     </application>
 
 </manifest>

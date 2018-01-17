@@ -2,6 +2,7 @@ package com.google.apiguide.ipc.messager;
 
 import android.app.Service;
 import android.content.Intent;
+import android.icu.util.BuddhistCalendar;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -29,6 +30,7 @@ public class MessengerService extends Service {
                     Message replyMessage = Message.obtain(null, MessengerActivity.MSG_FROM_SERVICE);
                     Bundle bundle = new Bundle();
                     bundle.putString("reply", "消息已收到，稍后回复");
+                    replyMessage.setData(bundle);
                     try {
                         client.send(replyMessage);
                     } catch (RemoteException e) {

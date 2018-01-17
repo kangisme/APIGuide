@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import com.google.apiguide.BaseActivity;
 import com.google.apiguide.R;
@@ -27,6 +29,23 @@ public class MessengerActivity extends BaseActivity {
 
     private Messenger messenger;
 
+    private Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what)
+            {
+                case MSG_FROM_SERVICE:
+                    Bundle bundle = msg.getData();
+                    String s = bundle.getString("reply");
+                    Toast.makeText(MessengerActivity.this, s, Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            return true;
+        }
+    });
+
+    private Messenger replyMessenger = new Messenger(handler);
+
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -35,6 +54,7 @@ public class MessengerActivity extends BaseActivity {
             Bundle data = new Bundle();
             data.putString("msg", "This is a message from client.");
             msg.setData(data);
+            msg.replyTo = replyMessenger;
             try {
                 messenger.send(msg);
             } catch (RemoteException e) {
